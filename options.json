@@ -1,0 +1,22 @@
+{
+    "serial": {
+        "com": "COM3",
+        "baud": 115200
+    },
+    "influx": {
+        "host": "localhost",
+        "port": 8086,
+        "db_name": "SER"
+    },
+    "CAN": {
+        "MPPT": {
+            "base_addr": "0x600",
+            "mppt1_id": "0x0A0",
+            "mppt2_id": "0x0B0",
+            "mppt3_id": "0x0C0"
+        },
+        "BMS": {
+            "base_addr": "0x500"
+        }
+    }
+}
