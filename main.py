@@ -9,5 +9,5 @@ if __name__ == "__main__":
         print(opt)
 
     # Start Serial receiver Thread
-    rec = SerialHandler(opt)
-    rec.start()
+    #rec = SerialHandler(opt)
+    #rec.start()

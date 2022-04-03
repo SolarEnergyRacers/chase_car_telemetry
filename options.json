@@ -18,5 +18,119 @@
         "BMS": {
             "base_addr": "0x500"
         }
-    }
+    },
+    "data": [
+        {
+            "csv_header": "timeStamp",
+            "txt_header": "TimeStamp"
+        },
+        {
+            "csv_header": "uptime",
+            "txt_header": "Uptime"
+        },
+        {
+            "csv_header": "msg",
+            "txt_header": "Message"
+        },
+        {
+            "csv_header": "speed",
+            "txt_header": "Speed"
+        },
+        {
+            "csv_header": "acceleration",
+            "txt_header": "Acceleration Input"
+        },
+        {
+            "csv_header": "deceleration",
+            "txt_header": "Deceleration Input"
+        },
+        {
+            "csv_header": "accelerationDisplay",
+            "txt_header": "Acceleration Display"
+        },
+        {
+            "csv_header": "batteryOn",
+            "txt_header": "Battery On"
+        },
+        {
+            "csv_header": "pvOn",
+            "txt_header": "PV On"
+        },
+        {
+            "csv_header": "pvCurrent",
+            "txt_header": "PV Current (LEM)"
+        },
+        {
+            "csv_header": "motorOn",
+            "txt_header": "Motor On"
+        },
+        {
+            "csv_header": "motorCurrent",
+            "txt_header": "Motor Current"
+        },
+        {
+            "csv_header": "t1",
+            "txt_header": "Temperature 1"
+        },
+        {
+            "csv_header": "t2",
+            "txt_header": "Temperature 2"
+        },
+        {
+            "csv_header": "t3",
+            "txt_header": "Temperature 3"
+        },
+        {
+            "csv_header": "t4",
+            "txt_header": "Temperature 4"
+        },
+        {
+            "csv_header": "indicator",
+            "txt_header": "Indicators"
+        },
+        {
+            "csv_header": "driveDirection",
+            "txt_header": "Drive Direction"
+        },
+        {
+            "csv_header": "constantModeOn",
+            "txt_header": "Constant Mode On"
+        },
+        {
+            "csv_header": "sdCardDetected",
+            "txt_header": "SD Card Detected"
+        },
+        {
+            "csv_header": "displayStatus",
+            "txt_header": "Display Status"
+        },
+        {
+            "csv_header": "constantMode",
+            "txt_header": "Constant Mode"
+        },
+        {
+            "csv_header": "targetSpeed",
+            "txt_header": "Target Speed"
+        },
+        {
+            "csv_header": "targetPower",
+            "txt_header": "Target Power"
+        },
+        {
+            "csv_header": "driverInfo",
+            "txt_header": "Driver Info"
+        },
+        {
+            "csv_header": "speedArrow",
+            "txt_header": "Speed Arrow"
+        },
+        {
+            "csv_header": "light",
+            "txt_header": "Light"
+        },
+        {
+            "csv_header": "io",
+            "txt_header": "IO"
+        }
+    ]
 }
