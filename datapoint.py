@@ -1,10 +1,12 @@
 from dataclasses import dataclass
+from typing import Any, Dict
 
 @dataclass
 class DataPoint:
-    timestamp: int
     measurement: str
-    type: str
-    value_f: float
-    value_i: int
-    value_b: bool
+    tags: Dict
+    timestamp: int = 0
+    value: Any = None
+
+    def asInfluxString(self):
+        return ""

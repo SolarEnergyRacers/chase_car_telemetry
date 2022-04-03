@@ -1,5 +1,4 @@
 import json
-
 from serialhandler import SerialHandler
 
 if __name__ == "__main__":
