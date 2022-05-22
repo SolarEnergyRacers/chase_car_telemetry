@@ -53,6 +53,22 @@
             "txt_header": "Battery On"
         },
         {
+            "csv_header": "batteryVoltage",
+            "txt_header": "Battery Voltage"
+        },
+        {
+            "csv_header": "batteryCurrent",
+            "txt_header": "Battery Current"
+        },
+        {
+            "csv_header": "batteryErrors",
+            "txt_header": "Battery Errors"
+        },
+        {
+            "csv_header": "batteryPrechargeState",
+            "txt_header": "PV On"
+        },
+        {
             "csv_header": "pvOn",
             "txt_header": "PV On"
         },
@@ -67,6 +83,30 @@
         {
             "csv_header": "motorCurrent",
             "txt_header": "Motor Current"
+        },
+        {
+            "csv_header": "mppt1Current",
+            "txt_header": "MPPT 1 Current"
+        },
+        {
+            "csv_header": "mppt2Current",
+            "txt_header": "MPPT 2 Current"
+        },
+        {
+            "csv_header": "mppt3Current",
+            "txt_header": "MPPT 3 Current"
+        },
+        {
+            "csv_header": "voltageMin",
+            "txt_header": "min. Voltage"
+        },
+        {
+            "csv_header": "voltageAvg",
+            "txt_header": "avg. Voltage"
+        },
+        {
+            "csv_header": "voltageMax",
+            "txt_header": "max. Voltage"
         },
         {
             "csv_header": "t1",

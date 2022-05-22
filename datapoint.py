@@ -5,8 +5,9 @@ from typing import Any, Dict
 class DataPoint:
     measurement: str
     tags: Dict
-    timestamp: int = 0
-    value: Any = None
+    time: int
+    fields: Dict
+
 
     def asInfluxString(self):
         return ""

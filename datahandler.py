@@ -1,17 +1,34 @@
-import threading
-
 from can_frame import CANFrame
+from influxdb import InfluxDBClient
+import requests
 
 
-class DataHandler(threading.Thread):
-    def __init__(self, options):
-        self.options = options
+class DataHandler:
+    def __init__(self, opt):
+        self.opt = opt
+
+        try:
+            self.client = InfluxDBClient(host=opt["influx"]["host"], port=opt["influx"]["port"])
+            dbs = self.client.get_list_database()
+
+            if not {'name' : self.opt["influx"]["db_name"]} in dbs:
+                self.client.create_database(self.opt["influx"]["db_name"])
+
+            self.client.switch_database(self.opt["influx"]["db_name"])
+            self.available = True
+
+        except (requests.exceptions.ConnectionError, requests.exceptions.ReadTimeout, ConnectionRefusedError) as err:
+            print(err)
+            print("Connection to Influx DB failed")
+            print("host=" + opt["influx"]["host"])
+            print("port=" + str(opt["influx"]["port"]))
+            self.available = False
 
     def parseDataset(self, str):
         pass
 
-    def parseCANFrame(self, str):
-        frame = CANFrame(str);
+    def uploadCANFrame(self, can_frame):
+        self.uploadDatapoints(can_frame.asDatapoints)
 
     def uploadDatapoints(self, datapoints):
-        pass
+        self.client.write_points([dp.__dict__ for dp in datapoints])
