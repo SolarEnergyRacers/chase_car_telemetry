@@ -22,155 +22,193 @@
     "data": [
         {
             "csv_header": "timeStamp",
-            "txt_header": "TimeStamp"
+            "txt_header": "TimeStamp",
+            "type": "int"
         },
         {
             "csv_header": "uptime",
-            "txt_header": "Uptime"
+            "txt_header": "Uptime",
+            "type": "int"
         },
         {
             "csv_header": "msg",
-            "txt_header": "Message"
+            "txt_header": "Message",
+            "type": "str"
         },
         {
             "csv_header": "speed",
-            "txt_header": "Speed"
+            "txt_header": "Speed",
+            "type": "float"
         },
         {
             "csv_header": "acceleration",
-            "txt_header": "Acceleration Input"
+            "txt_header": "Acceleration Input",
+            "type": "float"
         },
         {
             "csv_header": "deceleration",
-            "txt_header": "Deceleration Input"
+            "txt_header": "Deceleration Input",
+            "type": "float"
         },
         {
             "csv_header": "accelerationDisplay",
-            "txt_header": "Acceleration Display"
+            "txt_header": "Acceleration Display",
+            "type": "float"
         },
         {
             "csv_header": "batteryOn",
-            "txt_header": "Battery On"
+            "txt_header": "Battery On",
+            "type": "Bool"
         },
         {
             "csv_header": "batteryVoltage",
-            "txt_header": "Battery Voltage"
+            "txt_header": "Battery Voltage",
+            "type": "float"
         },
         {
             "csv_header": "batteryCurrent",
-            "txt_header": "Battery Current"
+            "txt_header": "Battery Current",
+            "type": "float"
         },
         {
             "csv_header": "batteryErrors",
-            "txt_header": "Battery Errors"
+            "txt_header": "Battery Errors",
+            "type": "str"
         },
         {
             "csv_header": "batteryPrechargeState",
-            "txt_header": "PV On"
+            "txt_header": "Battery Precharge State",
+            "type": "str"
         },
         {
             "csv_header": "pvOn",
-            "txt_header": "PV On"
+            "txt_header": "PV On",
+            "type": "Bool"
         },
         {
             "csv_header": "pvCurrent",
-            "txt_header": "PV Current (LEM)"
+            "txt_header": "PV Current (LEM)",
+            "type": "float"
         },
         {
             "csv_header": "motorOn",
-            "txt_header": "Motor On"
+            "txt_header": "Motor On",
+            "type": "Bool"
         },
         {
             "csv_header": "motorCurrent",
-            "txt_header": "Motor Current"
+            "txt_header": "Motor Current",
+            "type": "float"
         },
         {
             "csv_header": "mppt1Current",
-            "txt_header": "MPPT 1 Current"
+            "txt_header": "MPPT 1 Current",
+            "type": "float"
         },
         {
             "csv_header": "mppt2Current",
-            "txt_header": "MPPT 2 Current"
+            "txt_header": "MPPT 2 Current",
+            "type": "float"
         },
         {
             "csv_header": "mppt3Current",
-            "txt_header": "MPPT 3 Current"
+            "txt_header": "MPPT 3 Current",
+            "type": "float"
         },
         {
             "csv_header": "voltageMin",
-            "txt_header": "min. Voltage"
+            "txt_header": "min. Voltage",
+            "type": "float"
         },
         {
             "csv_header": "voltageAvg",
-            "txt_header": "avg. Voltage"
+            "txt_header": "avg. Voltage",
+            "type": "float"
         },
         {
             "csv_header": "voltageMax",
-            "txt_header": "max. Voltage"
+            "txt_header": "max. Voltage",
+            "type": "float"
         },
         {
             "csv_header": "t1",
-            "txt_header": "Temperature 1"
+            "txt_header": "Temperature 1",
+            "type": "float"
         },
         {
             "csv_header": "t2",
-            "txt_header": "Temperature 2"
+            "txt_header": "Temperature 2",
+            "type": "float"
         },
         {
             "csv_header": "t3",
-            "txt_header": "Temperature 3"
+            "txt_header": "Temperature 3",
+            "type": "float"
         },
         {
             "csv_header": "t4",
-            "txt_header": "Temperature 4"
+            "txt_header": "Temperature 4",
+            "type": "float"
         },
         {
             "csv_header": "indicator",
-            "txt_header": "Indicators"
+            "txt_header": "Indicators",
+            "type": "str"
         },
         {
             "csv_header": "driveDirection",
-            "txt_header": "Drive Direction"
+            "txt_header": "Drive Direction",
+            "type": "str"
         },
         {
             "csv_header": "constantModeOn",
-            "txt_header": "Constant Mode On"
+            "txt_header": "Constant Mode On",
+            "type": "Bool"
         },
         {
             "csv_header": "sdCardDetected",
-            "txt_header": "SD Card Detected"
+            "txt_header": "SD Card Detected",
+            "type": "Bool"
         },
         {
             "csv_header": "displayStatus",
-            "txt_header": "Display Status"
+            "txt_header": "Display Status",
+            "type": "str"
         },
         {
             "csv_header": "constantMode",
-            "txt_header": "Constant Mode"
+            "txt_header": "Constant Mode",
+            "type": "str"
         },
         {
             "csv_header": "targetSpeed",
-            "txt_header": "Target Speed"
+            "txt_header": "Target Speed",
+            "type": "float"
         },
         {
             "csv_header": "targetPower",
-            "txt_header": "Target Power"
+            "txt_header": "Target Power",
+            "type": "float"
         },
         {
             "csv_header": "driverInfo",
-            "txt_header": "Driver Info"
+            "txt_header": "Driver Info",
+            "type": "str"
         },
         {
             "csv_header": "speedArrow",
-            "txt_header": "Speed Arrow"
+            "txt_header": "Speed Arrow",
+            "type": "str"
         },
         {
             "csv_header": "light",
-            "txt_header": "Light"
+            "txt_header": "Light",
+            "type": "str"
         },
         {
             "csv_header": "io",
-            "txt_header": "IO"
+            "txt_header": "IO",
+            "type": "str"
         }
     ]
 }

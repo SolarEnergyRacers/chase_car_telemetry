@@ -1,4 +1,3 @@
-from can_frame import CANFrame
 from influxdb import InfluxDBClient
 import requests
 
@@ -18,17 +17,15 @@ class DataHandler:
             self.available = True
 
         except (requests.exceptions.ConnectionError, requests.exceptions.ReadTimeout, ConnectionRefusedError) as err:
+            self.available = False
             print(err)
             print("Connection to Influx DB failed")
             print("host=" + opt["influx"]["host"])
             print("port=" + str(opt["influx"]["port"]))
-            self.available = False
 
-    def parseDataset(self, str):
-        pass
 
-    def uploadCANFrame(self, can_frame):
-        self.uploadDatapoints(can_frame.asDatapoints)
+    def uploadDataInput(self, di):
+        self.uploadDatapoints(di.asDatapoints)
 
     def uploadDatapoints(self, datapoints):
         self.client.write_points([dp.__dict__ for dp in datapoints])
