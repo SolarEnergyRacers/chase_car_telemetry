@@ -7,6 +7,8 @@ import time
 
 class SerialHandler(threading.Thread):
     def __init__(self, options):
+        super().__init__()
+
         self.options = options
 
         self.com = None
@@ -15,10 +17,6 @@ class SerialHandler(threading.Thread):
 
         self.in_queue = []  # data being received from solar car
         self.out_queue = []  # data that will be sent to solar car
-        self.open_req = []  # data that has been sent to solar car, but not yet acknowledged
-        self.req_count = 0  # counter to keep track of request ids
-
-        threading.Thread.__init__(self)
 
     def run(self):
         while True:

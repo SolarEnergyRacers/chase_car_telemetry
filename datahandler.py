@@ -25,7 +25,7 @@ class DataHandler:
 
 
     def uploadDataInput(self, di):
-        self.uploadDatapoints(di.asDatapoints)
+        self.uploadDatapoints(di.asDatapoints())
 
     def uploadDatapoints(self, datapoints):
         self.client.write_points([dp.__dict__ for dp in datapoints])

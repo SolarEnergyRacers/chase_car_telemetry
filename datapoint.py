@@ -7,7 +7,3 @@ class DataPoint:
     tags: Dict
     time: int
     fields: Dict
-
-
-    def asInfluxString(self):
-        return ""

@@ -1,4 +1,9 @@
 {
+    "comm": {
+        "get_missing_data": 0,
+        "req_attempts": 5,
+        "retry_timeout": 2
+    },
     "serial": {
         "com": "COM3",
         "baud": 115200
@@ -11,9 +16,9 @@
     "CAN": {
         "MPPT": {
             "base_addr": "0x600",
-            "mppt1_id": "0x0A0",
-            "mppt2_id": "0x0B0",
-            "mppt3_id": "0x0C0"
+            "mppt1_id": "0x6A0",
+            "mppt2_id": "0x6B0",
+            "mppt3_id": "0x6C0"
         },
         "BMS": {
             "base_addr": "0x500"
