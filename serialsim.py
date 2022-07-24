@@ -39,24 +39,24 @@ class SerialSim(threading.Thread):
         s += str(random.randint(0, 255)) + "," #decelinp
         s += str(random.randint(0, 255)) + "," #acceldisp
         s += str(random.choice(["true", "false"])) + ","
-        s += str(random.random() * 80 + 20) + "," #battvolt
-        s += str(random.random() * 50) + "," #battcurr
+        s += str(round(random.random() * 80 + 20,3)) + "," #battvolt
+        s += str(round(random.random() * 50,3)) + "," #battcurr
         s += "Battery Errors" + ","
         s += "Precharge State" + ","
         s += str(random.choice(["true", "false"])) + ","
-        s += str(random.random() * 15) + ","
+        s += str(round(random.random() * 15,3)) + ","
         s += str(random.choice(["true", "false"])) + "," #motoron
-        s += str(random.random() * 50) + "," #motorcurr
-        s += str(random.random() * 50) + ","  # mppt1
-        s += str(random.random() * 50) + ","  # mppt2
-        s += str(random.random() * 50) + ","  # mppt3
-        s += str(random.random() * 4.2) + ","  # U cell min
-        s += str(random.random() * 4.2) + ","  # U cell avg
-        s += str(random.random() * 4.2) + ","  # U cell max
-        s += str(random.random() * 30 + 20) + ","
-        s += str(random.random() * 30 + 20) + ","
-        s += str(random.random() * 30 + 20) + ","
-        s += str(random.random() * 30 + 20) + ","
+        s += str(round(random.random() * 50,3)) + "," #motorcurr
+        s += str(round(random.random() * 50,3)) + ","  # mppt1
+        s += str(round(random.random() * 50,3)) + ","  # mppt2
+        s += str(round(random.random() * 50,3)) + ","  # mppt3
+        s += str(round(random.random() * 4.2,3)) + ","  # U cell min
+        s += str(round(random.random() * 4.2,3)) + ","  # U cell avg
+        s += str(round(random.random() * 4.2,3)) + ","  # U cell max
+        s += str(round(random.random() * 30 + 20,3)) + ","
+        s += str(round(random.random() * 30 + 20,3)) + ","
+        s += str(round(random.random() * 30 + 20,3)) + ","
+        s += str(round(random.random() * 30 + 20,3)) + ","
         s += str(random.choice(["OFF", "LEFT", "RIGHT", "HAZARD FLASHR"])) + ","
         s += str(random.choice(["fwd", "bwd"])) + ","
         s += str(random.choice(["true", "false"])) + ","
@@ -69,6 +69,7 @@ class SerialSim(threading.Thread):
         s += str(random.choice(["OFF", "INCREASE", "DECREASE"])) + ","
         s += str(random.choice(["OFF", "L1", "L2"])) + ","
         s += "IOString" + "\n"
+        print(len(s))
         return s
 
     def get_next_input(self):

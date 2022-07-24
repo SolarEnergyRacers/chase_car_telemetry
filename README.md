@@ -28,7 +28,8 @@ CAN frames are transmitted with a c:: prefix
 `c:timestamp,CAN_Address,data\n`
 
 Command Acknowledgment
-`a:request_number,success\n`
+`a:request_number,1\n`  success
+`a:request_number,0\n`  failed
 
 #### Sent by chase car
 Ack Mode: data acknowledgment
@@ -36,6 +37,8 @@ Ack Mode: data acknowledgment
 
 Command Request
 `r:request_number,command\n`
+Example: setting driver info
+`r:15,:FullSend\n`
 
 Re-request missing data
 `m:request_number,timestamp_from,timestamp_to`

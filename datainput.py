@@ -1,7 +1,8 @@
 import math
 import struct
+import time
 from datapoint import DataPoint
-
+from dataclasses import dataclass
 
 # Use as abstract class
 class DataInput:
@@ -255,7 +256,7 @@ class CANFrame(DataInput):
 
 
 class CSVLine(DataInput):
-    def __int__(self, opt):
+    def __init__(self, opt):
         DataInput.__init__(self)
         self.opt = opt
 
@@ -302,3 +303,21 @@ class CSVLine(DataInput):
                     datapoints.append(dp)
 
         return datapoints
+
+
+class RequestAck(DataInput):
+    def __init__(self):
+        DataInput.__init__(self)
+
+    def __init__(self, req, success):
+        DataInput.__init__(self)
+        self.req = req
+
+    def asDatapoints(self):
+        dp = DataPoint("ACK",
+                       {"req": self.req.command},
+                       int(time.time()),
+                       {"success": self.success,
+                        "attempts": self.req.attempt})
+        return [dp]
+

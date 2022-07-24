@@ -2,7 +2,8 @@
     "comm": {
         "get_missing_data": 0,
         "req_attempts": 5,
-        "retry_timeout": 2
+        "retry_timeout": 2,
+        "driver_info_length": 15
     },
     "serial": {
         "com": "COM3",
