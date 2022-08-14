@@ -4,10 +4,12 @@ solarenergyracers.ch chase car telemetry system
 
 - Receives data from a serial port
 - uploads data to an influx db
-- offers UI with real-time data
+- offers UI to send commands
 - can send messages to solar car
 
 Requires an influxdb
+
+![img](./doc/FunctionalDiagram.png)
 
 ## Communication Protocol
 ### Operation modes:
@@ -20,20 +22,23 @@ Requires an influxdb
 #### Sent by solar car
 
 Data is generally transmitted in a comma separated format prefixed by d::
-`d::timeStamp,uptime,msg,speed,acceleration,deceleration,accelerationDisplay,batteryOn,pvOn,pvCurrent,motorOn,motorCurrent,t1,t2,t3,t4,indicator,driveDirection,constantModeOn,sdCardDetected,displayStatus,constantMode,targetSpeed,targetPower,driverInfo,speedArrow,light,io\n`
+`d:timeStamp,uptime,msg,speed,acceleration,deceleration,accelerationDisplay,batteryOn,pvOn,pvCurrent,motorOn,motorCurrent,t1,t2,t3,t4,indicator,driveDirection,constantModeOn,sdCardDetected,displayStatus,constantMode,targetSpeed,targetPower,driverInfo,speedArrow,light,io\n`
 
 CAN frames are transmitted with a c:: prefix
-`c::timestamp,CAN_Address,data\n`
+`c:timestamp,CAN_Address,data\n`
 
 Command Acknowledgment
-`a::request_number,success\n`
+`a:request_number,1\n`  success
+`a:request_number,0\n`  failed
 
 #### Sent by chase car
 Ack Mode: data acknowledgment
-`a::timestamp,type(d/c)\n`
+`a:timestamp,type(d/c)\n`
 
 Command Request
-`rc::request_number,command\n`
+`r:request_number,command\n`
+Example: setting driver info
+`r:15,:FullSend\n`
 
 Re-request missing data
-`rd::request_number,timestamp_from,timestamp_to`
+`m:request_number,timestamp_from,timestamp_to`
