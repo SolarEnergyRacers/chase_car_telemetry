@@ -21,7 +21,7 @@ class CommHandler(threading.Thread):
 
     def run(self):
 
-        while(True):
+        while True:
 
             if self.sh.input_available():  # handle inputs from solar car
                 l = self.sh.get_next_input()

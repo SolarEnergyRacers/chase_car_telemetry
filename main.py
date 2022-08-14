@@ -10,7 +10,6 @@ if __name__ == "__main__":
 
     with open("options.json", "r") as opt_file:
         opt = json.load(opt_file)
-        print(opt)
 
     sh = SerialSim(opt)
     dh = DataHandler(opt)

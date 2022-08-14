@@ -69,7 +69,6 @@ class SerialSim(threading.Thread):
         s += str(random.choice(["OFF", "INCREASE", "DECREASE"])) + ","
         s += str(random.choice(["OFF", "L1", "L2"])) + ","
         s += "IOString" + "\n"
-        print(len(s))
         return s
 
     def get_next_input(self):
