@@ -16,8 +16,16 @@ class CommHandler(threading.Thread):
         self.opt = opt
         self.sh = sh #serial handler
         self.dh = dh #data handler
+        #self.uih = uih #ui handler
         self.open_requests = {}
         self.request_id = 1
+
+    def setUIHandler(self, uih):
+        self.uih = uih
+
+    def updateUI(self, last_rec, connected, arrow_state, info_state):
+        pass
+
 
     def run(self):
 
@@ -52,6 +60,7 @@ class CommHandler(threading.Thread):
                     if self.open_requests[req_id].attempt >= self.opt["comm"]["req_attempts"]:
                         self.open_requests.pop(req_id)
 
+            self.uih.updateRequestList()
 
     def ackRequest(self, input_str):
         req_number = int(input_str.split(":")[1].split(",")[0])

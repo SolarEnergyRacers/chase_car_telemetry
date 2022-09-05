@@ -1,4 +1,7 @@
 {
+    "app": {
+        "debug": true
+    },
     "comm": {
         "get_missing_data": 0,
         "req_attempts": 5,
