@@ -33,9 +33,11 @@ if __name__ == "__main__":
     uih = UIHandler(ch)
     uih.show()
 
+    ch.mutex.acquire()
     ch.setUIHandler(uih)
+    ch.mutex.release()
 
-    # sh.start()
-    # ch.start()
+    sh.start()
+    ch.start()
 
     sys.exit(app.exec_())

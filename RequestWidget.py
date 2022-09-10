@@ -9,70 +9,106 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import QCoreApplication, QMetaObject
+from PyQt5.QtGui import QFont
+from PyQt5.QtWidgets import QSizePolicy, QGridLayout, QLabel
 
 
 class Ui_RequestWidget(object):
     def setupUi(self, Form):
-        Form.setObjectName("Form")
+        if not Form.objectName():
+            Form.setObjectName(u"Form")
         Form.resize(298, 91)
-        self.gridLayout = QtWidgets.QGridLayout(Form)
-        self.gridLayout.setObjectName("gridLayout")
-        self.lblId = QtWidgets.QLabel(Form)
-        font = QtGui.QFont()
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(Form.sizePolicy().hasHeightForWidth())
+        Form.setSizePolicy(sizePolicy)
+        self.gridLayout = QGridLayout(Form)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.lblId = QLabel(Form)
+        self.lblId.setObjectName(u"lblId")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.lblId.sizePolicy().hasHeightForWidth())
+        self.lblId.setSizePolicy(sizePolicy1)
+        font = QFont()
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
         self.lblId.setFont(font)
-        self.lblId.setObjectName("lblId")
+
         self.gridLayout.addWidget(self.lblId, 0, 1, 1, 1)
-        self.lblLastRequest = QtWidgets.QLabel(Form)
-        self.lblLastRequest.setObjectName("lblLastRequest")
+
+        self.lblLastRequest = QLabel(Form)
+        self.lblLastRequest.setObjectName(u"lblLastRequest")
+        sizePolicy1.setHeightForWidth(self.lblLastRequest.sizePolicy().hasHeightForWidth())
+        self.lblLastRequest.setSizePolicy(sizePolicy1)
+
         self.gridLayout.addWidget(self.lblLastRequest, 1, 1, 1, 1)
-        self.label = QtWidgets.QLabel(Form)
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
+
+        self.label = QLabel(Form)
+        self.label.setObjectName(u"label")
+        sizePolicy1.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy1)
         self.label.setFont(font)
-        self.label.setObjectName("label")
+
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
-        self.lblAttemptCount = QtWidgets.QLabel(Form)
-        self.lblAttemptCount.setObjectName("lblAttemptCount")
+
+        self.lblAttemptCount = QLabel(Form)
+        self.lblAttemptCount.setObjectName(u"lblAttemptCount")
+        sizePolicy1.setHeightForWidth(self.lblAttemptCount.sizePolicy().hasHeightForWidth())
+        self.lblAttemptCount.setSizePolicy(sizePolicy1)
+
         self.gridLayout.addWidget(self.lblAttemptCount, 2, 1, 1, 1)
-        self.label_3 = QtWidgets.QLabel(Form)
-        self.label_3.setObjectName("label_3")
+
+        self.label_3 = QLabel(Form)
+        self.label_3.setObjectName(u"label_3")
+        sizePolicy1.setHeightForWidth(self.label_3.sizePolicy().hasHeightForWidth())
+        self.label_3.setSizePolicy(sizePolicy1)
+
         self.gridLayout.addWidget(self.label_3, 1, 0, 1, 1)
-        self.label_5 = QtWidgets.QLabel(Form)
-        self.label_5.setObjectName("label_5")
+
+        self.label_5 = QLabel(Form)
+        self.label_5.setObjectName(u"label_5")
+        sizePolicy1.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
+        self.label_5.setSizePolicy(sizePolicy1)
+
         self.gridLayout.addWidget(self.label_5, 2, 0, 1, 1)
-        self.label_7 = QtWidgets.QLabel(Form)
-        self.label_7.setObjectName("label_7")
+
+        self.label_7 = QLabel(Form)
+        self.label_7.setObjectName(u"label_7")
+        sizePolicy1.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
+        self.label_7.setSizePolicy(sizePolicy1)
+
         self.gridLayout.addWidget(self.label_7, 3, 0, 1, 1)
-        self.lblStatus = QtWidgets.QLabel(Form)
-        self.lblStatus.setObjectName("lblStatus")
+
+        self.lblStatus = QLabel(Form)
+        self.lblStatus.setObjectName(u"lblStatus")
+        sizePolicy1.setHeightForWidth(self.lblStatus.sizePolicy().hasHeightForWidth())
+        self.lblStatus.setSizePolicy(sizePolicy1)
+
         self.gridLayout.addWidget(self.lblStatus, 3, 1, 1, 1)
 
+
         self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
+
+        QMetaObject.connectSlotsByName(Form)
+    # setupUi
 
     def retranslateUi(self, Form):
-        _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.lblId.setText(_translate("Form", "txtId"))
-        self.lblLastRequest.setText(_translate("Form", "TextLabel"))
-        self.label.setText(_translate("Form", "id:"))
-        self.lblAttemptCount.setText(_translate("Form", "10"))
-        self.label_3.setText(_translate("Form", "last request attempt:"))
-        self.label_5.setText(_translate("Form", "attempt count"))
-        self.label_7.setText(_translate("Form", "status"))
-        self.lblStatus.setText(_translate("Form", "open"))
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
+        self.lblId.setText(QCoreApplication.translate("Form", u"txtId", None))
+        self.lblLastRequest.setText(QCoreApplication.translate("Form", u"TextLabel", None))
+        self.label.setText(QCoreApplication.translate("Form", u"id:", None))
+        self.lblAttemptCount.setText(QCoreApplication.translate("Form", u"10", None))
+        self.label_3.setText(QCoreApplication.translate("Form", u"last request attempt:", None))
+        self.label_5.setText(QCoreApplication.translate("Form", u"attempt count", None))
+        self.label_7.setText(QCoreApplication.translate("Form", u"status", None))
+        self.lblStatus.setText(QCoreApplication.translate("Form", u"open", None))
+    # retranslateUi
 
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_RequestWidget()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())
+
+

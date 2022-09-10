@@ -8,23 +8,23 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import *
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1036, 663)
+        MainWindow.resize(1340, 750)
         icon = QIcon()
         iconThemeName = u"SER"
         if QIcon.hasThemeIcon(iconThemeName):
             icon = QIcon.fromTheme(iconThemeName)
         else:
             icon.addFile(u"../../../../../.designer/backup", QSize(), QIcon.Normal, QIcon.Off)
-        
+
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -70,7 +70,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addItem(self.verticalSpacer_3, 3, 0, 1, 1)
 
-
         self.vertricalLayout_1.addWidget(self.grpTelemetryInfo)
 
         self.grpSpeedArrow = QGroupBox(self.centralwidget)
@@ -105,7 +104,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.rbArrowDown)
 
-
         self.verticalLayout.addLayout(self.horizontalLayout_3)
 
         self.btnArrowRequest = QPushButton(self.grpSpeedArrow)
@@ -130,9 +128,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.lblSpeedArrowState)
 
-
         self.verticalLayout.addLayout(self.horizontalLayout_2)
-
 
         self.vertricalLayout_1.addWidget(self.grpSpeedArrow)
 
@@ -192,13 +188,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4.addWidget(self.lblInfoState)
 
-
         self.verticalLayout_3.addLayout(self.horizontalLayout_4)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_3.addItem(self.verticalSpacer)
-
 
         self.vertricalLayout_1.addWidget(self.grpDriverInfo)
 
@@ -208,30 +202,53 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addLayout(self.vertricalLayout_1)
 
-        self.verticalLayout_2 = QVBoxLayout()
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalLayout_2.setSizeConstraint(QLayout.SetDefaultConstraint)
+        self.tblRequests = QTableWidget(self.centralwidget)
+        if (self.tblRequests.columnCount() < 4):
+            self.tblRequests.setColumnCount(4)
+        __qtablewidgetitem = QTableWidgetItem()
+        self.tblRequests.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        __qtablewidgetitem1 = QTableWidgetItem()
+        self.tblRequests.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        __qtablewidgetitem2 = QTableWidgetItem()
+        self.tblRequests.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        __qtablewidgetitem3 = QTableWidgetItem()
+        self.tblRequests.setHorizontalHeaderItem(3, __qtablewidgetitem3)
+        self.tblRequests.setObjectName(u"tblRequests")
+
+        self.horizontalLayout.addWidget(self.tblRequests)
+
         self.verticalLayout_4 = QVBoxLayout()
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setSizeConstraint(QLayout.SetMinimumSize)
         self.label_9 = QLabel(self.centralwidget)
         self.label_9.setObjectName(u"label_9")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
+        self.label_9.setSizePolicy(sizePolicy1)
         self.label_9.setFont(font)
 
         self.verticalLayout_4.addWidget(self.label_9)
 
         self.lstRequests = QListView(self.centralwidget)
         self.lstRequests.setObjectName(u"lstRequests")
+        self.lstRequests.setEnabled(True)
+        sizePolicy2 = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.lstRequests.sizePolicy().hasHeightForWidth())
+        self.lstRequests.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_4.addWidget(self.lstRequests)
 
+        self.verticalLayout_4.setStretch(1, 1)
 
-        self.verticalLayout_2.addLayout(self.verticalLayout_4)
-
-
-        self.horizontalLayout.addLayout(self.verticalLayout_2)
+        self.horizontalLayout.addLayout(self.verticalLayout_4)
 
         self.horizontalLayout.setStretch(0, 1)
         self.horizontalLayout.setStretch(1, 1)
+        self.horizontalLayout.setStretch(2, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -240,12 +257,13 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         QMetaObject.connectSlotsByName(MainWindow)
+
     # setupUi
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"SER4 Telemetry", None))
         self.grpTelemetryInfo.setTitle("")
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Telemetry system available:", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Telemetry hardware available:", None))
         self.lblLastReceived.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"Telemetry Info", None))
         self.lblSerialConnected.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
@@ -266,6 +284,14 @@ class Ui_MainWindow(object):
         self.btnInfoRequest.setText(QCoreApplication.translate("MainWindow", u"Request", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Current State", None))
         self.lblInfoState.setText(QCoreApplication.translate("MainWindow", u"txtLblCurrentInfo", None))
+        ___qtablewidgetitem = self.tblRequests.horizontalHeaderItem(0)
+        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"id", None));
+        ___qtablewidgetitem1 = self.tblRequests.horizontalHeaderItem(1)
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"last attempt", None));
+        ___qtablewidgetitem2 = self.tblRequests.horizontalHeaderItem(2)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"attempt count", None));
+        ___qtablewidgetitem3 = self.tblRequests.horizontalHeaderItem(3)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"status", None));
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Requests", None))
     # retranslateUi
 
