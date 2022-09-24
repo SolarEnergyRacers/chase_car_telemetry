@@ -1,3 +1,5 @@
+import time
+
 from influxdb import InfluxDBClient
 import requests
 
@@ -5,6 +7,7 @@ import requests
 class DataHandler:
     def __init__(self, opt):
         self.opt = opt
+        self.offset = 0
 
         try:
             self.client = InfluxDBClient(host=opt["influx"]["host"], port=opt["influx"]["port"])
@@ -25,6 +28,12 @@ class DataHandler:
 
 
     def uploadDataInput(self, di):
+        print("upload")
+        #if self.offset == 0:
+        #    self.offset = di.timestamp - int(time.time())
+
+        #di.timestamp = di.timestamp - self.offset
+
         self.uploadDatapoints(di.asDatapoints())
 
     def uploadDatapoints(self, datapoints):

@@ -264,43 +264,50 @@ class CSVLine(DataInput):
         DataInput.__init__(self)
         self.opt = opt
         self.serial_str = serial_str
-        self.timestamp = int(serial_str.split(",")[0].split(":")[1])
+        self.timestamp = int(time.time())
 
     def asDatapoints(self):
-        datapoints = []
+        try:
+            datapoints = []
+            substrs = [s.strip() for s in self.serial_str.split(",")]
+            substrs[0] = substrs[0][2:]
+            print("time: " + str(self.timestamp))
 
-        substrs = [s.strip() for s in self.serial_str.split(",")]
-        substrs[0] = substrs[0][2:]
-        for i, substr in enumerate(substrs):
-            measurement = self.opt["data"][i]["csv_header"]
-            #print("-------------")
-            #print(measurement)
-            #print(i)
-            #print(substr)
+            for i, substr in enumerate(substrs):
+                try:
+                    measurement = self.opt["data"][i]["csv_header"]
+                except IndexError:
+                    print("no def found for index: " + str(i))
+                    print("val:" + substr)
+                    continue
 
+                if measurement == "timestamptxt" or measurement == "timestamp" or measurement == "endl":
+                    pass
+                else:
+                    match self.opt["data"][i]["type"]:
+                        case "int":
+                            dp = DataPoint(measurement, {}, self.timestamp, {"value": int(substr)})
+                            datapoints.append(dp)
+                        case "float":
+                            dp = DataPoint(measurement, {}, self.timestamp, {"value": float(substr)})
+                            datapoints.append(dp)
+                        case "bool":
+                            val = None
 
-            match self.opt["data"][i]["type"]:
-                case "int":
-                    dp = DataPoint(measurement, {}, self.timestamp, {"value": int(substr)})
-                    datapoints.append(dp)
-                case "float":
-                    dp = DataPoint(measurement, {}, self.timestamp, {"value": float(substr)})
-                    datapoints.append(dp)
-                case "bool":
-                    val = None
+                            if substr == "1":
+                                val = True
+                            elif substr == "0":
+                                val = False
+                            else:
+                                val = "err"
 
-                    if substr == "true":
-                        val = True
-                    elif substr == "false":
-                        val = False
-                    else:
-                        val = "err"
-
-                    dp = DataPoint(measurement, {}, self.timestamp, {"value": val})
-                    datapoints.append(dp)
-                case _:  # str and default handling
-                    dp = DataPoint(measurement, {}, self.timestamp, {"value": substr})
-                    datapoints.append(dp)
+                            dp = DataPoint(measurement, {}, self.timestamp, {"value": val})
+                            datapoints.append(dp)
+                        case _:  # str and default handling
+                            dp = DataPoint(measurement, {}, self.timestamp, {"value": substr})
+                            datapoints.append(dp)
+        except:
+            print("datapoint error")
 
         return datapoints
 

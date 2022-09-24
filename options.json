@@ -9,8 +9,8 @@
         "driver_info_length": 15
     },
     "serial": {
-        "com": "COM3",
-        "baud": 115200
+        "com": "COM5",
+        "baud": 9600
     },
     "influx": {
         "host": "localhost",
@@ -30,7 +30,7 @@
     },
     "data": [
         {
-            "csv_header": "timeStamp",
+            "csv_header": "timestamp",
             "txt_header": "TimeStamp",
             "type": "int"
         },
@@ -155,8 +155,13 @@
             "type": "float"
         },
         {
-            "csv_header": "t4",
-            "txt_header": "Temperature 4",
+            "csv_header": "tmin",
+            "txt_header": "min Cell Temperature",
+            "type": "float"
+        },
+        {
+            "csv_header": "tmax",
+            "txt_header": "max Cell Temperature",
             "type": "float"
         },
         {
@@ -170,19 +175,14 @@
             "type": "str"
         },
         {
+            "csv_header": "controlMode",
+            "txt_header": "Control Mode",
+            "type": "str"
+        },
+        {
             "csv_header": "constantModeOn",
             "txt_header": "Constant Mode On",
             "type": "Bool"
-        },
-        {
-            "csv_header": "sdCardDetected",
-            "txt_header": "SD Card Detected",
-            "type": "Bool"
-        },
-        {
-            "csv_header": "displayStatus",
-            "txt_header": "Display Status",
-            "type": "str"
         },
         {
             "csv_header": "constantMode",
@@ -190,8 +190,33 @@
             "type": "str"
         },
         {
+            "csv_header": "sdstatus",
+            "txt_header": "SD Status",
+            "type": "str"
+        },
+        {
+            "csv_header": "displayStatus",
+            "txt_header": "Display Status",
+            "type": "str"
+        },
+        {
             "csv_header": "targetSpeed",
             "txt_header": "Target Speed",
+            "type": "float"
+        },
+        {
+            "csv_header": "Kp",
+            "txt_header": "Kp",
+            "type": "float"
+        },
+        {
+            "csv_header": "Ki",
+            "txt_header": "Ki",
+            "type": "float"
+        },
+        {
+            "csv_header": "Kd",
+            "txt_header": "Kd",
             "type": "float"
         },
         {
@@ -215,8 +240,33 @@
             "type": "str"
         },
         {
+            "csv_header": "greenlight",
+            "txt_header": "green light",
+            "type": "bool"
+        },
+        {
+            "csv_header": "fan",
+            "txt_header": "Fan",
+            "type": "bool"
+        },
+        {
             "csv_header": "io",
             "txt_header": "IO",
+            "type": "str"
+        },
+        {
+            "csv_header": "datetxt",
+            "txt_header": "DateTxt",
+            "type": "str"
+        },
+        {
+            "csv_header": "timetxt",
+            "txt_header": "TimeTxt",
+            "type": "str"
+        },
+        {
+            "csv_header": "endl",
+            "txt_header": "endl",
             "type": "str"
         }
     ]

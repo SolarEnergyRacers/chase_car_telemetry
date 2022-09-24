@@ -22,8 +22,8 @@ if __name__ == "__main__":
     else:
         lg.root.setLevel(lg.INFO)
 
-    sh = SerialSim(opt)
-    # sh = SerialHandler(opt)
+    # sh = SerialSim(opt)
+    sh = SerialHandler(opt)
     dh = DataHandler(opt)
 
     # CommHandler can take any object that implements run, input_available, get_next_input and add_output in place of sh

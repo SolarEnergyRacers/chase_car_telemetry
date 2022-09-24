@@ -16,42 +16,33 @@ class UIHandler(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ch = ch
         self.btnArrowRequest.clicked.connect(lambda: self.speedArrowRequest())
         self.btnInfoRequest.clicked.connect(lambda: self.driverInfoRequest())
-
-        req_widg = Ui_RequestWidget()
-        req_widg.setupUi(self.lstRequests)
-
-        rowPosition = self.tblRequests.rowCount()
-        self.tblRequests.insertRow(rowPosition)
-        qtblw = QTableWidgetItem("    5") #.setTextAlignment(4)
-        self.tblRequests.setItem(rowPosition, 0, qtblw)
-        self.tblRequests.setItem(rowPosition, 1, QTableWidgetItem(time.strftime("%H:%M:%S")))
-        self.tblRequests.setItem(rowPosition, 2, QTableWidgetItem("6"))
-        self.tblRequests.setItem(rowPosition, 3, QTableWidgetItem("open"))
+        self.btnConsoleSend.clicked.connect(lambda: self.directConsoleCommand())
 
         self.out_req = []
 
     @pyqtSlot()
     def speedArrowRequest(self):
-        self.ch.mutex.acquire()
+        req = "a"
+
         if self.rbArrowUp.isChecked():
-            self.ch.setSpeedArrow("u")
+            req += "u\n"
         elif self.rbArrowDown.isChecked():
-            self.ch.setSpeedArrow("d")
+            req += "d\n"
         else:
-            self.ch.setSpeedArrow("o")
-        self.ch.mutex.release()
+            req += "o\n"
+
+        self.out_req.append(req)
 
     @pyqtSlot()
     def driverInfoRequest(self):
-        txt = self.txtlnInfoInput.text()
-        txt.strip().encode("ascii", "ignore")
-
-        req = self.ch.getDriverInfoReq(self.cbInfoWarning.isChecked(), txt)
+        req = ":" + self.txtlnInfoInput.text() + "\n"
         self.out_req.append(req)
 
-        #self.ch.mutex.acquire()
-        #self.ch.setDriverInfo(self.cbInfoWarning.isChecked(), txt)
-        #self.ch.mutex.release()
+    @pyqtSlot()
+    def directConsoleCommand(self):
+        req = self.txtlnConsoleCommand.text() + "\n"
+        self.out_req.append(req)
+        self.txtlnConsoleCommand.setText("")
 
     def setTelemetryAvailable(self, text):
         self.lblSerialConnected.setText(text)
@@ -66,13 +57,4 @@ class UIHandler(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lblInfoState.setText(text)
 
     def updateRequestList(self, reqs):
-        for req_id in reqs:
-            print(req_id)
-            print(reqs[req_id])
-            print("----------")
-            req = reqs[req_id]
-            rowPosition = self.tblRequests.rowCount()
-            self.tblRequests.setItem(rowPosition, 0, QTableWidgetItem(str(req_id)))
-            self.tblRequests.setItem(rowPosition, 1, QTableWidgetItem(datetime.utcfromtimestamp(req.last_attempt).strftime("%H:%M:%S")))
-            self.tblRequests.setItem(rowPosition, 2, QTableWidgetItem(str(req.attempt)))
-            self.tblRequests.setItem(rowPosition, 3, QTableWidgetItem(req.done))
+        pass

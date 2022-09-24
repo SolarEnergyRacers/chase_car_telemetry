@@ -18,12 +18,33 @@ class SerialHandler(threading.Thread):
         self.in_queue = []  # data being received from solar car
         self.out_queue = []  # data that will be sent to solar car
 
+        self.last_beacon = 0.0
+
     def run(self):
         while True:
             try:
-                if self.com_available and self.com.inWaiting() > 0:
-                    input_val = self.com.read_until()  # reads until \n by default
-                    self.in_queue.append(input_val)
+                if self.com_available:
+                    if self.com.inWaiting() > 0:
+                        input_val = self.com.read_until().decode()  # reads until \n by default
+
+
+                        if input_val[:2] == "d:":
+                            self.in_queue.append(input_val)
+                            print(input_val)
+                        else:
+                            print("i:" + input_val)
+
+                    if len(self.out_queue) > 0:
+                        output_val = self.out_queue.pop()
+                        self.com.write(output_val.encode("ascii", "ignore"))
+                        print("o:" + output_val)
+
+                    time.sleep(0.2)
+
+                    #if time.time() - self.last_beacon > 0.75:
+                    #    self.com.write("v\n".encode("ascii", "ignore"))
+                    #    self.last_beacon = time.time()
+
                 elif not self.com_available:
                     self.connect_serial()
                     time.sleep(0.5)
@@ -51,7 +72,7 @@ class SerialHandler(threading.Thread):
 
     def connect_serial(self):
         try:
-            self.com = serial.Serial(self.options.com, self.options.baud)
+            self.com = serial.Serial(self.options["serial"]["com"], self.options["serial"]["baud"])
             self.com_available = True
         except SerialException:
             print("Failed to open Serial Connection")

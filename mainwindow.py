@@ -15,9 +15,9 @@ from PyQt5.QtWidgets import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        if not MainWindow.objectName():
+        if MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1340, 750)
+        MainWindow.resize(639, 609)
         icon = QIcon()
         iconThemeName = u"SER"
         if QIcon.hasThemeIcon(iconThemeName):
@@ -132,10 +132,6 @@ class Ui_MainWindow(object):
 
         self.vertricalLayout_1.addWidget(self.grpSpeedArrow)
 
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.vertricalLayout_1.addItem(self.verticalSpacer_2)
-
         self.grpDriverInfo = QGroupBox(self.centralwidget)
         self.grpDriverInfo.setObjectName(u"grpDriverInfo")
         self.verticalLayout_3 = QVBoxLayout(self.grpDriverInfo)
@@ -194,61 +190,52 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addItem(self.verticalSpacer)
 
+        self.line_2 = QFrame(self.grpDriverInfo)
+        self.line_2.setObjectName(u"line_2")
+        self.line_2.setFrameShape(QFrame.HLine)
+        self.line_2.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_3.addWidget(self.line_2)
+
+        self.grpConsoleCommand = QGroupBox(self.grpDriverInfo)
+        self.grpConsoleCommand.setObjectName(u"grpConsoleCommand")
+        self.verticalLayout_4 = QVBoxLayout(self.grpConsoleCommand)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.label_3 = QLabel(self.grpConsoleCommand)
+        self.label_3.setObjectName(u"label_3")
+        font1 = QFont()
+        font1.setBold(True)
+        font1.setWeight(75)
+        self.label_3.setFont(font1)
+
+        self.verticalLayout_4.addWidget(self.label_3)
+
+        self.txtlnConsoleCommand = QLineEdit(self.grpConsoleCommand)
+        self.txtlnConsoleCommand.setObjectName(u"txtlnConsoleCommand")
+
+        self.verticalLayout_4.addWidget(self.txtlnConsoleCommand)
+
+        self.btnConsoleSend = QPushButton(self.grpConsoleCommand)
+        self.btnConsoleSend.setObjectName(u"btnConsoleSend")
+        sizePolicy.setHeightForWidth(self.btnConsoleSend.sizePolicy().hasHeightForWidth())
+        self.btnConsoleSend.setSizePolicy(sizePolicy)
+
+        self.verticalLayout_4.addWidget(self.btnConsoleSend)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_4.addItem(self.verticalSpacer_2)
+
+        self.verticalLayout_3.addWidget(self.grpConsoleCommand)
+
         self.vertricalLayout_1.addWidget(self.grpDriverInfo)
 
         self.vertricalLayout_1.setStretch(0, 1)
         self.vertricalLayout_1.setStretch(1, 1)
-        self.vertricalLayout_1.setStretch(2, 1)
 
         self.horizontalLayout.addLayout(self.vertricalLayout_1)
 
-        self.tblRequests = QTableWidget(self.centralwidget)
-        if (self.tblRequests.columnCount() < 4):
-            self.tblRequests.setColumnCount(4)
-        __qtablewidgetitem = QTableWidgetItem()
-        self.tblRequests.setHorizontalHeaderItem(0, __qtablewidgetitem)
-        __qtablewidgetitem1 = QTableWidgetItem()
-        self.tblRequests.setHorizontalHeaderItem(1, __qtablewidgetitem1)
-        __qtablewidgetitem2 = QTableWidgetItem()
-        self.tblRequests.setHorizontalHeaderItem(2, __qtablewidgetitem2)
-        __qtablewidgetitem3 = QTableWidgetItem()
-        self.tblRequests.setHorizontalHeaderItem(3, __qtablewidgetitem3)
-        self.tblRequests.setObjectName(u"tblRequests")
-
-        self.horizontalLayout.addWidget(self.tblRequests)
-
-        self.verticalLayout_4 = QVBoxLayout()
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.verticalLayout_4.setSizeConstraint(QLayout.SetMinimumSize)
-        self.label_9 = QLabel(self.centralwidget)
-        self.label_9.setObjectName(u"label_9")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
-        self.label_9.setSizePolicy(sizePolicy1)
-        self.label_9.setFont(font)
-
-        self.verticalLayout_4.addWidget(self.label_9)
-
-        self.lstRequests = QListView(self.centralwidget)
-        self.lstRequests.setObjectName(u"lstRequests")
-        self.lstRequests.setEnabled(True)
-        sizePolicy2 = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Expanding)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.lstRequests.sizePolicy().hasHeightForWidth())
-        self.lstRequests.setSizePolicy(sizePolicy2)
-
-        self.verticalLayout_4.addWidget(self.lstRequests)
-
-        self.verticalLayout_4.setStretch(1, 1)
-
-        self.horizontalLayout.addLayout(self.verticalLayout_4)
-
         self.horizontalLayout.setStretch(0, 1)
-        self.horizontalLayout.setStretch(1, 1)
-        self.horizontalLayout.setStretch(2, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -284,14 +271,7 @@ class Ui_MainWindow(object):
         self.btnInfoRequest.setText(QCoreApplication.translate("MainWindow", u"Request", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Current State", None))
         self.lblInfoState.setText(QCoreApplication.translate("MainWindow", u"txtLblCurrentInfo", None))
-        ___qtablewidgetitem = self.tblRequests.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"id", None));
-        ___qtablewidgetitem1 = self.tblRequests.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"last attempt", None));
-        ___qtablewidgetitem2 = self.tblRequests.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"attempt count", None));
-        ___qtablewidgetitem3 = self.tblRequests.horizontalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"status", None));
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Requests", None))
+        self.grpConsoleCommand.setTitle("")
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Direct Console Input", None))
+        self.btnConsoleSend.setText(QCoreApplication.translate("MainWindow", u"Send", None))
     # retranslateUi
-
